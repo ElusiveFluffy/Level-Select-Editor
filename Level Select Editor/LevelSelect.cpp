@@ -45,6 +45,12 @@ bool LevelSelect::LoadCfgFile()
 		strcpy_s(LevelIDs[LevelCount], length, levelID.c_str());
 
 		LevelCount++;
+
+		//Too many IDs, the array currently is only 24 indexes
+		if (LevelCount == 24) {
+			TooManyIDs = true;
+			break;
+		}
 	}
 
 	return true;

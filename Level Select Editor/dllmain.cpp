@@ -34,13 +34,17 @@ EXTERN_C bool TygerFrameworkPluginInitialize(TygerFrameworkPluginInitializeParam
 
     API::Initialize(param);
 
+    //Log any errors/warnings here, since the API wasn't initialized when setting up the level select values
     if (LevelSelect::NoLevelIDsFile) {
         API::LogPluginMessage("Failed to Set the Level Select IDs, Level IDs cfg File is Missing!");
         param->initErrorMessage = "Level IDs cfg File is Missing!";
         return false;
     }
 
-    API::LogPluginMessage("Successfully Set the Level Select IDs");
+    if (LevelSelect::TooManyIDs)
+        API::LogPluginMessage("Only Successfully Set the First 24 Level Select IDs (24 is currently the max allowed)", Warning);
+    else
+        API::LogPluginMessage("Successfully Set the Level Select IDs");
 
     return true;
 }
