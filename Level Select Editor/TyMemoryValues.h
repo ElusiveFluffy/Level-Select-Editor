@@ -15,5 +15,5 @@ namespace TyMemoryValues {
 
 
 	inline BYTE* TextPropertiesMallocCountPtr() { return (BYTE*)(TyBaseAddress + 0xE4965); };
-	inline int* TextPropertiesArrayLength() { return (int*)(TyBaseAddress + 0xE49D8); };
+	inline int* TextPropertiesArrayLengthPtr() { return (int*)(TyBaseAddress + 0xE49D8); };
 }

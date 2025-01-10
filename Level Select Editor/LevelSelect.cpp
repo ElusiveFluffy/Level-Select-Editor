@@ -82,7 +82,7 @@ void LevelSelect::SetLevelIDs() {
 
 	*TextPropertiesMallocCountPtr() = LevelCount;
 	//The property array is 360 (0x168) bytes long
-	*TextPropertiesArrayLength() = LevelCount * 0x168;
+	*TextPropertiesArrayLengthPtr() = LevelCount * 0x168;
 
 	VirtualProtect(TextPropertiesMallocCountPtr(), 1, oldProtection, &oldProtection);
 
