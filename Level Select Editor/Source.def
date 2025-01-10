@@ -1,0 +1,5 @@
+LIBRARY "Level Select Editor"
+
+EXPORTS
+TygerFrameworkPluginInitialize
+TygerFrameworkPluginRequiredVersion
