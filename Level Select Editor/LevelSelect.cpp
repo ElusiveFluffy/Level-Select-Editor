@@ -37,6 +37,12 @@ bool LevelSelect::LoadCfgFile()
 
 	//Get all the IDs (1 per line)
 	while (std::getline(cfgFileLevelIDs, levelID)) {
+		//Too many IDs, the array currently is only 24 indexes
+		if (LevelCount == 24) {
+			TooManyIDs = true;
+			break;
+		}
+
 		//+ 1 for the null terminator
 		int length = levelID.length() + 1;
 
@@ -45,12 +51,6 @@ bool LevelSelect::LoadCfgFile()
 		strcpy_s(LevelIDs[LevelCount], length, levelID.c_str());
 
 		LevelCount++;
-
-		//Too many IDs, the array currently is only 24 indexes
-		if (LevelCount == 24) {
-			TooManyIDs = true;
-			break;
-		}
 	}
 
 	return true;
